@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfhbldl2tq6in"]
+
+[ext_resource type="Script" uid="uid://c8hw4qesojwad" path="res://button.gd" id="1_wlqlu"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -750.0
+offset_top = -200.0
+offset_right = -450.0
+offset_bottom = -160.0
+scale = Vector2(5, 5)
+bbcode_enabled = true
+text = "[center][color=darkred]SacrificeMe[/color][/center]"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(5, 5)
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 100.0
+offset_right = -100.0
+offset_bottom = 131.0
+grow_horizontal = 2
+scale = Vector2(3, 3)
+text = "Start
+"
+script = ExtResource("1_wlqlu")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
