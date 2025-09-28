@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfhbldl2tq6in"]
+[gd_scene load_steps=5 format=3 uid="uid://bfhbldl2tq6in"]
 
 [ext_resource type="Script" uid="uid://c8hw4qesojwad" path="res://button.gd" id="1_wlqlu"]
 [ext_resource type="Texture2D" uid="uid://buk6u20grp2ur" path="res://background_tscreen.png" id="2_o0emt"]
 [ext_resource type="Texture2D" uid="uid://dibjs1iue4clp" path="res://folder/start.png" id="3_3wrhw"]
 [ext_resource type="Texture2D" uid="uid://cwj48nhvpwql5" path="res://organ faliure.png" id="3_7oyjq"]
-[ext_resource type="Texture2D" uid="uid://d31lg681tts34" path="res://folder/Quit Game.png" id="5_asb77"]
-[ext_resource type="Script" uid="uid://bb7c5jhkd530h" path="res://quit.gd" id="6_3jkk6"]
 
 [node name="main" type="Node2D"]
 
@@ -38,7 +36,7 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_7oyjq")
 
 [node name="start" type="Sprite2D" parent="."]
-position = Vector2(370.99, 109)
+position = Vector2(364.77, 247.56)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_3wrhw")
 
@@ -58,26 +56,4 @@ text = "
 "
 script = ExtResource("1_wlqlu")
 
-[node name="quit" type="Sprite2D" parent="."]
-position = Vector2(387.11, 67.34)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("5_asb77")
-
-[node name="quit2" type="Button" parent="quit"]
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -582.653
-offset_top = 47.92
-offset_right = -382.653
-offset_bottom = 127.92
-grow_horizontal = 2
-rotation = -0.13439
-scale = Vector2(3, 3)
-text = "
-"
-script = ExtResource("6_3jkk6")
-
 [connection signal="pressed" from="start/start2" to="start/start2" method="_on_pressed"]
-[connection signal="pressed" from="quit/quit2" to="quit/quit2" method="_on_pressed"]
