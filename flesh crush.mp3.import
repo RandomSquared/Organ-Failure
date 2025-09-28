@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j4sakv2noqhq"
+path="res://.godot/imported/flesh crush.mp3-33f740778db3a3bcfe2eae6298b40983.mp3str"
+
+[deps]
+
+source_file="res://flesh crush.mp3"
+dest_files=["res://.godot/imported/flesh crush.mp3-33f740778db3a3bcfe2eae6298b40983.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
