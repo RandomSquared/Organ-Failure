@@ -25,7 +25,7 @@ func setorgan(organ):
 func _physics_process(delta):
 
 
-	if Input.is_action_just_pressed("interact") == true and isinsidearea == true:
+	if Input.is_action_just_pressed("interact") == true and isinsidearea == true and organfinished == false:
 		Signals.organpickup.emit("Eye")
 		Signals.organanim.emit()
 		organfinished = true
