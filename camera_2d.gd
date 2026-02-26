@@ -1,8 +1,15 @@
 extends Camera2D
 
+@onready var player = get_parent().velocity
+
+@export var look_ahead_factor: float = 0.4
+
+@export var smooth_speed: float = 3.0
+@export var idle_drop_distance: float = 200.0  
+
 func _ready():
 	Signals.organanim.connect(animation)
-	Signals.organpickup.connect(shrinkcam)
+	Signals.organpickup.connect(blindnessVI)
 
 func animation():
 	await get_tree().create_timer(1).timeout
@@ -29,11 +36,20 @@ func animation():
 	shake2.tween_property(self, "offset", Vector2(-50, 0), 0.1)
 	shake2.tween_property(self, "offset", Vector2(0, 0), 0.05)
 
-func shrinkcam(organ):
+func blindnessVI(organ):
 	if organ == "Eye":
-		await get_tree().create_timer(1.0).timeout
-		get_window().set_flag(Window.FLAG_RESIZE_DISABLED, false)
-		DisplayServer.window_set_size(Vector2i(1080, 1080))
-		get_window().set_flag(Window.FLAG_RESIZE_DISABLED, true)
-		$ColorRect.visible = true
-		position.x += 700
+		$eyepenalty.visible = true
+		$eyepenalty2a.visible = true
+
+func _process(delta):
+	var parent = get_parent()
+
+	var target_offset = Vector2.ZERO
+	if abs(parent.velocity.x) > 0:
+		target_offset.x = parent.velocity.x * look_ahead_factor
+		target_offset.y = 0.0
+	else:
+		target_offset.x = 0.0
+		target_offset.y = idle_drop_distance
+
+	self.position = self.position.lerp(target_offset, smooth_speed * delta)

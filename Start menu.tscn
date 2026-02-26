@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfhbldl2tq6in"]
+[gd_scene load_steps=6 format=3 uid="uid://bfhbldl2tq6in"]
 
 [ext_resource type="Script" uid="uid://c8hw4qesojwad" path="res://button.gd" id="1_wlqlu"]
 [ext_resource type="Texture2D" uid="uid://buk6u20grp2ur" path="res://background_tscreen.png" id="2_o0emt"]
 [ext_resource type="Texture2D" uid="uid://dibjs1iue4clp" path="res://folder/start.png" id="3_3wrhw"]
 [ext_resource type="Texture2D" uid="uid://cwj48nhvpwql5" path="res://organ faliure.png" id="3_7oyjq"]
+[ext_resource type="Script" uid="uid://bsrmxo2kg7vng" path="res://start.gd" id="4_ju3j3"]
 
 [node name="main" type="Node2D"]
 
@@ -36,24 +37,29 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_7oyjq")
 
 [node name="start" type="Sprite2D" parent="."]
-position = Vector2(364.77, 247.56)
+position = Vector2(478, -1)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_3wrhw")
+script = ExtResource("4_ju3j3")
 
 [node name="start2" type="Button" parent="start"]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -539.007
-offset_top = -171.127
-offset_right = -439.007
-offset_bottom = -131.127
+offset_left = -222.5
+offset_top = 25.0
+offset_right = -71.5
+offset_bottom = 96.0
 grow_horizontal = 2
 rotation = -0.621337
-scale = Vector2(3, 3)
+scale = Vector2(1.5, 1.5)
 text = "
 "
 script = ExtResource("1_wlqlu")
 
+[connection signal="mouse_entered" from="start/start2" to="start" method="_on_start_2_mouse_entered"]
+[connection signal="mouse_entered" from="start/start2" to="start/start2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="start/start2" to="start" method="_on_start_2_mouse_exited"]
+[connection signal="mouse_exited" from="start/start2" to="start/start2" method="_on_mouse_exited"]
 [connection signal="pressed" from="start/start2" to="start/start2" method="_on_pressed"]

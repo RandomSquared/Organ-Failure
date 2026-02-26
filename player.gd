@@ -112,6 +112,10 @@ func _physics_process(delta):
 			speed += acceleration * delta * speedmult
 		elif Input.is_action_pressed("left") and is_on_floor():
 			speed += acceleration * delta * -1 * speedmult
+		elif Input.is_action_pressed("right") and not is_on_floor():
+			speed += acceleration * delta * 0.5 * speedmult
+		elif Input.is_action_pressed("left") and not is_on_floor():
+			speed += acceleration * delta * -0.5 * speedmult
 		if not Input.is_anything_pressed() and is_on_floor():
 			speed = 0
 		if Input.is_action_pressed("left") and is_on_floor() and speed > 0:
